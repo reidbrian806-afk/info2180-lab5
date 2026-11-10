@@ -4,21 +4,24 @@ document.addEventListener('DOMContentLoaded', () => {
     const citiesBtn    = document.getElementById('lookup-cities');
     const resultDiv    = document.getElementById('result');
 
-    // Exercise 3 — Lookup countries
+    function fetchData(url) {
+        fetch(url)
+            .then(response => response.text())
+            .then(data => {
+                resultDiv.innerHTML = data;
+            })
+            .catch(err => {
+                resultDiv.innerHTML = "<p style='color:red;'>Error: " + err + "</p>";
+            });
+    }
+
     lookupBtn.addEventListener('click', () => {
         const country = countryInput.value;
-        fetch(`world.php?country=${encodeURIComponent(country)}`)
-            .then(response => response.text())
-            .then(data => { resultDiv.innerHTML = data; })
-            .catch(err => { resultDiv.innerHTML = "Error: " + err; });
+        fetchData(`world.php?country=${encodeURIComponent(country)}`);
     });
 
-    // Exercise 5 — Lookup cities
     citiesBtn.addEventListener('click', () => {
         const country = countryInput.value;
-        fetch(`world.php?country=${encodeURIComponent(country)}&lookup=cities`)
-            .then(response => response.text())
-            .then(data => { resultDiv.innerHTML = data; })
-            .catch(err => { resultDiv.innerHTML = "Error: " + err; });
+        fetchData(`world.php?country=${encodeURIComponent(country)}&lookup=cities`);
     });
 });
