@@ -1,1 +1,179 @@
-/* Add your own styles */
+/* ============================================
+   INFO2180 Lab 5 — world.css
+   ============================================ */
+
+/* ---------- Reset & base ---------- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    color: #333;
+    background: #eef2f5;
+    min-height: 100vh;
+}
+
+/* ---------- Header ---------- */
+header {
+    background: #3d4d63;            /* dark slate blue */
+    color: #ffffff;
+    padding: 30px 20px;
+    text-align: center;
+    border-bottom: 4px solid #2c3a4d;
+}
+
+header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    /* Optional world emoji as a nod to Figure 7's map */
+}
+
+/* ---------- Main layout ---------- */
+main {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+/* ---------- Controls (input + buttons) ---------- */
+#controls {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+#controls label {
+    font-weight: 600;
+    color: #3d4d63;
+}
+
+#country {
+    padding: 10px 14px;
+    font-size: 15px;
+    border: 1px solid #c3ccd5;
+    border-radius: 4px;
+    width: 280px;
+    max-width: 100%;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+#country:focus {
+    border-color: #20c997;
+    box-shadow: 0 0 0 3px rgba(32, 201, 151, 0.2);
+}
+
+/* ---------- Buttons ---------- */
+#controls button {
+    padding: 10px 20px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+}
+
+/* Lookup — teal/green (matches Figure 7) */
+#lookup {
+    background: #20c997;
+}
+#lookup:hover {
+    background: #17a87c;
+}
+
+/* Lookup Cities — blue (matches Figure 7) */
+#lookup-cities {
+    background: #3498db;
+}
+#lookup-cities:hover {
+    background: #2980b9;
+}
+
+#controls button:active {
+    transform: translateY(1px);
+}
+
+/* ---------- Result area ---------- */
+#result {
+    background: #ffffff;
+    border-radius: 6px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    min-height: 60px;
+}
+
+#result p {
+    color: #666;
+    text-align: center;
+    padding: 10px 0;
+}
+
+/* ---------- Tables (used in Exercises 4 & 5) ---------- */
+#result table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+#result table th,
+#result table td {
+    padding: 10px 12px;
+    text-align: left;
+    border-bottom: 1px solid #e5e9ed;
+}
+
+#result table thead th,
+#result table tr:first-child th {
+    background: #3d4d63;
+    color: #ffffff;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+}
+
+/* Zebra striping — matches Figure 7 */
+#result table tbody tr:nth-child(even),
+#result table tr:nth-child(even) {
+    background: #f4f7f9;
+}
+
+#result table tr:hover {
+    background: #e8f6f1;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 1.4rem;
+    }
+
+    #controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    #country {
+        width: 100%;
+    }
+
+    #controls button {
+        width: 100%;
+    }
+
+    #result table th,
+    #result table td {
+        padding: 8px 6px;
+        font-size: 13px;
+    }
+}
